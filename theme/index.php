@@ -2,50 +2,28 @@
 
 <div id="main" class="group">
 					<div id="blog" class="left-col">
-						<div class="post">
-							<h2>Morbi leo risus, porta ac consectetur</h2>
-							<div class="byline">by <a href="#">HAROLD OVERMAN</a> on <a href="#">THURSDAY, JANUARY 12, 2012</a></div>
+                        <?php if(have_posts()):while(have_posts()):the_post(); ?>
 
-							<p>Ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare el eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-							<p>Ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare el eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
 
 						<div class="post">
-							<h2>Morbi leo risus, porta ac consectetur</h2>
-							<div class="byline">by <a href="#">HAROLD OVERMAN</a> on <a href="#">THURSDAY, JANUARY 12, 2012</a></div>
+							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+							<div class="byline">by <?php the_author_posts_link(); ?> on <a href="<?php the_permalink(); ?>"><?php the_time('l F d, Y'); ?></a></div>
 
-							<p>Ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare el eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<?php the_content('Read More...'); ?>
 						</div>
+                        <?php endwhile; else: ?>
+                        <p><?php _e('No posts were found. Sorry! '); ?></p>
+                        <?php endif; ?>
 
 						<div class="navi">
 							<div class="right">
-								<a href="#">Previous</a> / <a href="#">Next</a>
+								<?php previous_posts_link('Previous'); ?> / <?php next_posts_link('Next'); ?>
 							</div>
 
-							<ul class="pages">
-								<li>Page</li>
-								<li><a href="#">1</a></li>
-								<li>2</li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-							</ul>
-						</div>
+				        </div>
 
 					</div>
-					<aside class="right-col">
-						<div class="widget">
-							<h3>ABOUT US</h3>
-							<p>Ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-							<p>Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-
-							<p><a href="#">MORE ABOUT US...</a></p>
-						</div>
-					</aside>
+					<?php get_sidebar(); ?>
 				</div>
 
 <?php get_footer()?>
