@@ -14,9 +14,9 @@ if(function_exists('register_nav_menus'))
 if(function_exists('register_sidebar'))
 {
     register_sidebar(array(
-    'name'=>_('Primary Sidebar','primary-sidebar'),
+    'name'=>_('Primary Sidebar', 'primary-sidebar'),
         'id'=>'primary-widget-area',
-        'description'=>_('The primary widget area','dir'),
+        'description'=>_('The primary widget area', 'dir'),
         'before_widget'=>'<div class="widget">',
         'after_widget'=>"</div>",
         'before_title'=>'<h3 class="widget-title">',
